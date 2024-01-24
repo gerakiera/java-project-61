@@ -8,7 +8,7 @@ import java.util.Scanner;
 import static hexlet.code.Cli.getNameOnly;
 
 public class Even {
-    static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static void evenGame() {
         System.out.println("Welcome to the Brain Games!");
         Cli cli = new Cli();
