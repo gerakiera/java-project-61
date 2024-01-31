@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Even {
     private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int COUNT_ROUNDS = 3;
+    private static final int RND_MAX_NUM = 200;
     public static void evenGame() {
         System.out.println("Welcome to the Brain Games!");
         String name = Cli.getName();
@@ -15,7 +16,7 @@ public class Even {
         int correctAnswers = 0;
         Scanner sc = new Scanner(System.in);
         while (correctAnswers < COUNT_ROUNDS) {
-            int randomNumber = rnd.nextInt(200);
+            int randomNumber = rnd.nextInt(RND_MAX_NUM);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String playersResponse = sc.next();

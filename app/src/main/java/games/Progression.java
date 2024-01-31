@@ -8,6 +8,11 @@ import java.util.Scanner;
 public class Progression {
     private static final String RULES = "What number is missing in the progression?";
     private static final int COUNT_ROUNDS = 3;
+    private static final int RND_MAX_START = 20;
+    private static final int RND_MAX_STEP = 8;
+    private static final int RND_MAX_INDEX = 11;
+    private static final int MAX_IN_ARRAY = 10;
+    private static final int ELEMENT_TO_REPLACE = 100;
     public static void gameProgression() {
         System.out.println("Welcome to the Brain Games!");
         String name = Cli.getName();
@@ -16,18 +21,18 @@ public class Progression {
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
         while (correctAnswers < COUNT_ROUNDS) {
-            int start = rnd.nextInt(20);
-            int step = rnd.nextInt(8);
-            int randomIndex = rnd.nextInt(11);
-            int[] progression = new int[10];
+            int start = rnd.nextInt(RND_MAX_START);
+            int step = rnd.nextInt(RND_MAX_STEP);
+            int randomIndex = rnd.nextInt(RND_MAX_INDEX);
+            int[] progression = new int[MAX_IN_ARRAY];
             for (var i = 0; i < progression.length; i++) {
                 progression[i] = start + i * step;
             }
             System.out.print("Question: ");
             int correctAns = progression[randomIndex];
-            progression[randomIndex] = 100;
+            progression[randomIndex] = ELEMENT_TO_REPLACE;
             for (var i = 0; i < progression.length; i++) {
-                if (progression[i] == 100) {
+                if (progression[i] == ELEMENT_TO_REPLACE) {
                     System.out.print(".. ");
                 } else {
                     System.out.print(progression[i] + " ");

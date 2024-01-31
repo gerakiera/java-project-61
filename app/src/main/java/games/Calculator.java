@@ -8,21 +8,23 @@ import java.util.Scanner;
 public class Calculator {
     private static final String RULES = "What is the result of the expression?";
     private static final int COUNT_ROUNDS = 3;
+    private static final int RND_MAX_ACTION = 3;
+    private static final int RND_MAX_NUM = 20;
+
     public static void calculatorGame() {
         System.out.println("Welcome to the Brain Games!");
         String name = Cli.getName();
         System.out.println(RULES);
-        Random rnd1 = new Random();
-        Random rnd2 = new Random();
+        Random rnd = new Random();
         Random action = new Random();
         int correctAnswers = 0;
         Scanner sc = new Scanner(System.in);
         while (correctAnswers < COUNT_ROUNDS) {
-            int choiceAction = action.nextInt(3);
+            int choiceAction = action.nextInt(RND_MAX_ACTION);
             String rndAction = "null";
             int correctAnsw = 0;
-            int rndNum1 = rnd1.nextInt(20);
-            int rndNum2 = rnd2.nextInt(20);
+            int rndNum1 = rnd.nextInt(RND_MAX_NUM);
+            int rndNum2 = rnd.nextInt(RND_MAX_NUM);
             if (choiceAction == 0) {
                 rndAction = "-";
                 correctAnsw = rndNum1 - rndNum2;

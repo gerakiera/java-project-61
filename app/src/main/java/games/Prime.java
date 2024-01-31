@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int COUNT_ROUNDS = 3;
+    private static final int RND_MAX_NUM = 200;
     public static void gamePrime() {
         System.out.println("Welcome to the Brain Games!");
         String name = Cli.getName();
@@ -16,7 +17,7 @@ public class Prime {
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
         while (correctAnswers < COUNT_ROUNDS) {
-            var randomNumber = rnd.nextInt(100);
+            var randomNumber = rnd.nextInt(RND_MAX_NUM);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String playersResponse = sc.next();

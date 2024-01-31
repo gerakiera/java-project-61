@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class GCD {
     private static final String RULES = "Find the greatest common divisor of given numbers.";
     private static final int COUNT_ROUNDS = 3;
+    private static final int RND_MAX_NUM = 50;
     public static void gcdGame() {
         System.out.println("Welcome to the Brain Games!");
         String name = Cli.getName();
@@ -15,8 +16,8 @@ public class GCD {
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
         while (correctAnswers < COUNT_ROUNDS) {
-            int rndNum1 = rnd.nextInt(50);
-            int rndNum2 = rnd.nextInt(50);
+            int rndNum1 = rnd.nextInt(RND_MAX_NUM);
+            int rndNum2 = rnd.nextInt(RND_MAX_NUM);
             int a = rndNum1;
             int b = rndNum2;
             while (b != 0) {
