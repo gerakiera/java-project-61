@@ -13,11 +13,10 @@ public class GCD {
         System.out.println(RULES);
         int correctAnswers = 0;
         Scanner sc = new Scanner(System.in);
-        Random rnd1 = new Random();
-        Random rnd2 = new Random();
+        Random rnd = new Random();
         while (correctAnswers < COUNT_ROUNDS) {
-            int rndNum1 = rnd1.nextInt(50);
-            int rndNum2 = rnd2.nextInt(50);;
+            int rndNum1 = rnd.nextInt(50);
+            int rndNum2 = rnd.nextInt(50);
             int a = rndNum1;
             int b = rndNum2;
             while (b != 0) {
@@ -33,7 +32,8 @@ public class GCD {
                 System.out.println("Correct!");
                 correctAnswers++;
             } else {
-                System.out.println("'" + playersResponse + "' is wrong answer ;(. Correct answer was '" + correctAns + "'.");
+                System.out.println("'" + playersResponse
+                        + "' is wrong answer ;(. Correct answer was '" + correctAns + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 break;
             }

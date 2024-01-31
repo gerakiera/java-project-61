@@ -19,12 +19,14 @@ public class Even {
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String playersResponse = sc.next();
-            if ((randomNumber % 2 == 0 && playersResponse.equals("yes")) || (randomNumber % 2 != 0 && playersResponse.equals("no"))) {
+            if ((randomNumber % 2 == 0
+                    && playersResponse.equals("yes")) || (randomNumber % 2 != 0 && playersResponse.equals("no"))) {
                 System.out.println("Correct!");
                 correctAnswers++;
             } else {
                 String correctAnswer = (randomNumber % 2 == 0) ? "yes" : "no";
-                System.out.println("'" + playersResponse + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + playersResponse
+                        + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 break;
             }

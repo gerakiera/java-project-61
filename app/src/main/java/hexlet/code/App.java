@@ -7,7 +7,6 @@ import java.util.Scanner;
 import games.GCD;
 import games.Progression;
 import games.Prime;
-import hexlet.code.Cli;
 
 public class App {
     static final int GREETING_NUMBER = 1;
