@@ -48,6 +48,9 @@ public class Calculator {
                 break;
             }
         }
+        if (correctAnswers == COUNT_ROUNDS) {
+            System.out.println("Congratulations, " + name + "!");
+        }
         sc.close();
     }
 }

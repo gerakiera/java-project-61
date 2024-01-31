@@ -38,6 +38,9 @@ public class GCD {
                 break;
             }
         }
+        if (correctAnswers == COUNT_ROUNDS) {
+            System.out.println("Congratulations, " + name + "!");
+        }
         sc.close();
     }
 }
