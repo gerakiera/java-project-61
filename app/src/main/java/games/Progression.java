@@ -5,19 +5,17 @@ import hexlet.code.Cli;
 import java.util.Random;
 import java.util.Scanner;
 
-import static hexlet.code.Cli.getNameOnly;
-
 public class Progression {
     private static final String RULES = "What number is missing in the progression?";
+    private static final int COUNT_ROUNDS = 3;
     public static void gameProgression() {
         System.out.println("Welcome to the Brain Games!");
-        Cli cli = new Cli();
-        cli.getName();
+        String name = Cli.getName();
         System.out.println(RULES);
         int correctAnswers = 0;
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
-        while (correctAnswers < 3) {
+        while (correctAnswers < COUNT_ROUNDS) {
             int start = rnd.nextInt(20);
             int step = rnd.nextInt(8);
             int randomIndex = rnd.nextInt(11);
@@ -42,7 +40,7 @@ public class Progression {
                 correctAnswers++;
             } else {
                 System.out.println("'" + playersResponse + "' is wrong answer ;(. Correct answer was '" + correctAns + "'.");
-                System.out.println("Let's try again, " + getNameOnly() + "!");
+                System.out.println("Let's try again, " + name + "!");
                 break;
             }
         }

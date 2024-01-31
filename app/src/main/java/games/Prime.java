@@ -5,19 +5,17 @@ import hexlet.code.Cli;
 import java.util.Random;
 import java.util.Scanner;
 
-import static hexlet.code.Cli.getNameOnly;
-
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int COUNT_ROUNDS = 3;
         public static void gamePrime() {
             System.out.println("Welcome to the Brain Games!");
-            Cli cli = new Cli();
-            cli.getName();
+            String name = Cli.getName();
             System.out.println(RULES);
             int correctAnswers = 0;
             Scanner sc = new Scanner(System.in);
             Random rnd = new Random();
-            while (correctAnswers < 3) {
+            while (correctAnswers < COUNT_ROUNDS) {
                 var randomNumber = rnd.nextInt(100);
                 System.out.println("Question: " + randomNumber);
                 System.out.print("Your answer: ");
@@ -28,7 +26,7 @@ public class Prime {
                         correctAnswers++;
                     } else {
                         System.out.println("'" + playersResponse + "' is wrong answer ;(. Correct answer was '" + correctAns + "'.");
-                        System.out.println("Let's try again, " + getNameOnly() + "!");
+                        System.out.println("Let's try again, " + name + "!");
                         break;
                     }
                 }
