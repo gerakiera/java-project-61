@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import games.GCD;
 import games.Progression;
+import games.Prime;
 import hexlet.code.Cli;
 
 public class App {
@@ -16,7 +17,7 @@ public class App {
                 + "3 - Calculator\n"
                 + "4 - GCD\n"
                 + "5 - Progression\n"
-                //+ "6 - Prime\n"
+                + "6 - Prime\n"
                 + "0 - Exit");
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
@@ -41,6 +42,9 @@ public class App {
         }
         if (userChoice == 5) {
             Progression.gameProgression();
+        }
+        if (userChoice == 6) {
+            Prime.gamePrime();
         }
     }
 }

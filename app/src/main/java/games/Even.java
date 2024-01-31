@@ -1,7 +1,6 @@
 package games;
 
 import hexlet.code.Cli;
-
 import java.util.Random;
 import java.util.Scanner;
 
