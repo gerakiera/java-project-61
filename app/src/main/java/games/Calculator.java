@@ -1,30 +1,25 @@
 package games;
 
-import hexlet.code.Cli;
+import hexlet.code.Core;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Calculator {
     private static final String RULES = "What is the result of the expression?";
-    private static final int COUNT_ROUNDS = 3;
     private static final int RND_MAX_ACTION = 3;
     private static final int RND_MAX_NUM = 20;
 
     public static void calculatorGame() {
-        System.out.println("Welcome to the Brain Games!");
-        String name = Cli.getName();
-        System.out.println(RULES);
-        Random rnd = new Random();
-        Random action = new Random();
-        int correctAnswers = 0;
-        Scanner sc = new Scanner(System.in);
-        while (correctAnswers < COUNT_ROUNDS) {
-            int choiceAction = action.nextInt(RND_MAX_ACTION);
+        Core.doGreetingAndRules(RULES);
+        int[] correctAnsws = new int[3];
+        String[] questions = new String[3];
+        int count = 0;
+        while (count < Core.COUNT_ROUNDS) {
+            int choiceAction = new Random().nextInt(RND_MAX_ACTION);
             String rndAction = "null";
             int correctAnsw = 0;
-            int rndNum1 = rnd.nextInt(RND_MAX_NUM);
-            int rndNum2 = rnd.nextInt(RND_MAX_NUM);
+            int rndNum1 = new Random().nextInt(RND_MAX_NUM);
+            int rndNum2 = new Random().nextInt(RND_MAX_NUM);
             if (choiceAction == 0) {
                 rndAction = "-";
                 correctAnsw = rndNum1 - rndNum2;
@@ -37,22 +32,10 @@ public class Calculator {
                 rndAction = "*";
                 correctAnsw = rndNum1 * rndNum2;
             }
-            System.out.println("Question: " + rndNum1 + " " + rndAction + " " + rndNum2);
-            System.out.print("Your answer: ");
-            int playersResponse = sc.nextInt();
-            if (playersResponse == correctAnsw) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.println("'" + playersResponse
-                        + "' is wrong answer ;(. Correct answer was '" + correctAnsw + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+            questions[count] = rndNum1 + " " + rndAction + " " + rndNum2;
+            correctAnsws[count] = correctAnsw;
+            count++;
         }
-        if (correctAnswers == COUNT_ROUNDS) {
-            System.out.println("Congratulations, " + name + "!");
-        }
-        sc.close();
+        Core.playGame(correctAnsws, questions);
     }
 }
