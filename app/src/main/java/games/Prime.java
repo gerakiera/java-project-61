@@ -1,41 +1,26 @@
 package games;
 
-import hexlet.code.Cli;
 
+import hexlet.code.Core;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int COUNT_ROUNDS = 3;
     private static final int RND_MAX_NUM = 200;
     public static void gamePrime() {
-        System.out.println("Welcome to the Brain Games!");
-        String name = Cli.getName();
-        System.out.println(RULES);
-        int correctAnswers = 0;
-        Scanner sc = new Scanner(System.in);
-        Random rnd = new Random();
-        while (correctAnswers < COUNT_ROUNDS) {
-            var randomNumber = rnd.nextInt(RND_MAX_NUM);
-            System.out.println("Question: " + randomNumber);
-            System.out.print("Your answer: ");
-            String playersResponse = sc.next();
-            String correctAns = isPrime(randomNumber) ? "yes" : "no";
-            if (playersResponse.equals(correctAns)) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.println("'" + playersResponse
-                        + "' is wrong answer ;(. Correct answer was '" + correctAns + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+        Core.doGreetingAndRules(RULES);
+        String[] correctAnsws = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        String[] questions = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        int count = 0;
+        while (count < COUNT_ROUNDS) {
+            var randomNumber = new Random().nextInt(RND_MAX_NUM);
+            String correctAnsw = isPrime(randomNumber) ? "yes" : "no";
+            questions[count] = randomNumber + "";
+            correctAnsws[count] = correctAnsw;
+            count++;
         }
-        if (correctAnswers == COUNT_ROUNDS) {
-            System.out.println("Congratulations, " + name + "!");
-        }
-        sc.close();
+        Core.playGame(correctAnsws, questions);
     }
 
     private static boolean isPrime(int number) {
@@ -49,5 +34,5 @@ public class Prime {
         }
         return true;
     }
-}
 
+}

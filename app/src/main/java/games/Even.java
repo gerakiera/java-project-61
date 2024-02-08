@@ -1,40 +1,26 @@
 package games;
 
-import hexlet.code.Cli;
+import hexlet.code.Core;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Even {
     private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int COUNT_ROUNDS = 3;
     private static final int RND_MAX_NUM = 200;
     public static void evenGame() {
-        System.out.println("Welcome to the Brain Games!");
-        String name = Cli.getName();
-        System.out.println(RULES);
-        Random rnd = new Random();
-        int correctAnswers = 0;
-        Scanner sc = new Scanner(System.in);
-        while (correctAnswers < COUNT_ROUNDS) {
-            int randomNumber = rnd.nextInt(RND_MAX_NUM);
-            System.out.println("Question: " + randomNumber);
-            System.out.print("Your answer: ");
-            String playersResponse = sc.next();
-            if ((randomNumber % 2 == 0
-                    && playersResponse.equals("yes")) || (randomNumber % 2 != 0 && playersResponse.equals("no"))) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                String correctAnswer = (randomNumber % 2 == 0) ? "yes" : "no";
-                System.out.println("'" + playersResponse
-                        + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+        Core.doGreetingAndRules(RULES);
+        String[] correctAnsws = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        String[] questions = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        int count = 0;
+        while (count < COUNT_ROUNDS) {
+            int randomNumber = new Random().nextInt(RND_MAX_NUM);
+            questions[count] = randomNumber + "";
+            correctAnsws[count] = isEven(randomNumber);
+            count++;
         }
-        if (correctAnswers == COUNT_ROUNDS) {
-            System.out.println("Congratulations, " + name + "!");
-        }
-        sc.close();
+        Core.playGame(correctAnsws, questions);
+    }
+    public static String isEven(int num) {
+        return (num % 2 == 0) ? "yes" : "no";
     }
 }
