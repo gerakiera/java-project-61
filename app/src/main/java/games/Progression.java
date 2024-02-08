@@ -1,58 +1,44 @@
 package games;
 
-import hexlet.code.Cli;
-
+import hexlet.code.Core;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Progression {
     private static final String RULES = "What number is missing in the progression?";
     private static final int COUNT_ROUNDS = 3;
     private static final int RND_MAX_START = 20;
     private static final int RND_MAX_STEP = 8;
-    private static final int RND_MAX_INDEX = 11;
+    private static final int RND_MAX_INDEX = 10;
     private static final int MAX_IN_ARRAY = 10;
     private static final int ELEMENT_TO_REPLACE = 100;
+
     public static void gameProgression() {
-        System.out.println("Welcome to the Brain Games!");
-        String name = Cli.getName();
-        System.out.println(RULES);
-        int correctAnswers = 0;
-        Scanner sc = new Scanner(System.in);
-        Random rnd = new Random();
-        while (correctAnswers < COUNT_ROUNDS) {
-            int start = rnd.nextInt(RND_MAX_START);
-            int step = rnd.nextInt(RND_MAX_STEP);
-            int randomIndex = rnd.nextInt(RND_MAX_INDEX);
+        Core.doGreetingAndRules(RULES);
+        String[] correctAnsws = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        String[] questions = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        int count = 0;
+        while (count < COUNT_ROUNDS) {
+            int start = new Random().nextInt(RND_MAX_START);
+            int step = new Random().nextInt(RND_MAX_STEP);
+            int randomIndex = new Random().nextInt(RND_MAX_INDEX);
             int[] progression = new int[MAX_IN_ARRAY];
-            for (var i = 0; i < progression.length; i++) {
-                progression[i] = start + i * step;
-            }
-            System.out.print("Question: ");
-            int correctAns = progression[randomIndex];
+            correctAnsws[count] = String.valueOf(getAnsw(progression, randomIndex, start, step));
             progression[randomIndex] = ELEMENT_TO_REPLACE;
+            String question = "";
             for (var i = 0; i < progression.length; i++) {
-                if (progression[i] == ELEMENT_TO_REPLACE) {
-                    System.out.print(".. ");
-                } else {
-                    System.out.print(progression[i] + " ");
-                }
+                String part = progression[i] == ELEMENT_TO_REPLACE ? ".. " : progression[i] + " ";
+                question = question + part;
             }
-            System.out.print("Your answer: ");
-            int playersResponse = sc.nextInt();
-            if (playersResponse == correctAns) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.println("'" + playersResponse
-                        + "' is wrong answer ;(. Correct answer was '" + correctAns + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+            questions[count] = question;
+            count++;
         }
-        if (correctAnswers == COUNT_ROUNDS) {
-            System.out.println("Congratulations, " + name + "!");
+        Core.playGame(correctAnsws, questions);
+
+    }
+    private static int getAnsw(int[] arr, int index, int a, int b) {
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = a + i * b;
         }
-        sc.close();
+        return arr[index];
     }
 }
