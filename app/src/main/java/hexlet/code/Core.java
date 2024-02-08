@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Core {
     public static final int COUNT_ROUNDS = 3;
-
+    public static final int NUMBER_OF_ELEMENTS_FOR_ARRAY = 3;
     public static void playGame(int[] correctAnsws, String[] questions) {
         String name = Cli.getName();
         Scanner sc = new Scanner(System.in);
