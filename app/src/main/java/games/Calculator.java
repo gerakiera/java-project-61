@@ -11,8 +11,8 @@ public class Calculator {
 
     public static void calculatorGame() {
         Core.doGreetingAndRules(RULES);
-        int[] correctAnsws = new int[3];
-        String[] questions = new String[3];
+        int[] correctAnsws = new int[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        String[] questions = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
         int count = 0;
         while (count < Core.COUNT_ROUNDS) {
             int choiceAction = new Random().nextInt(RND_MAX_ACTION);
