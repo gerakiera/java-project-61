@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class Core {
     public static final int COUNT_ROUNDS = 3;
     public static final int NUMBER_OF_ELEMENTS_FOR_ARRAY = 3;
-    public static void playGame(int[] correctAnsws, String[] questions) {
+    public static void playGame(String[] correctAnsws, String[] questions) {
         String name = Cli.getName();
         Scanner sc = new Scanner(System.in);
         int usersCorrectAnswersCount = 0;
         while (usersCorrectAnswersCount < COUNT_ROUNDS) {
             System.out.println("Question: " + questions[usersCorrectAnswersCount]);
             System.out.print("Your answer: ");
-            int playersResponse = sc.nextInt();
-            if (playersResponse == correctAnsws[usersCorrectAnswersCount]) {
+            String playersResponse = sc.next();
+            if (playersResponse.equals(correctAnsws[usersCorrectAnswersCount])) {
                 System.out.println("Correct!");
                 usersCorrectAnswersCount++;
             } else {
