@@ -1,47 +1,32 @@
 package games;
 
-import hexlet.code.Cli;
+import hexlet.code.Core;
 import java.util.Random;
-import java.util.Scanner;
 
 public class GCD {
     private static final String RULES = "Find the greatest common divisor of given numbers.";
     private static final int COUNT_ROUNDS = 3;
     private static final int RND_MAX_NUM = 50;
     public static void gcdGame() {
-        System.out.println("Welcome to the Brain Games!");
-        String name = Cli.getName();
-        System.out.println(RULES);
-        int correctAnswers = 0;
-        Scanner sc = new Scanner(System.in);
-        Random rnd = new Random();
-        while (correctAnswers < COUNT_ROUNDS) {
-            int rndNum1 = rnd.nextInt(RND_MAX_NUM);
-            int rndNum2 = rnd.nextInt(RND_MAX_NUM);
-            int a = rndNum1;
-            int b = rndNum2;
-            while (b != 0) {
-                int temp = b;
-                b = a % b;
-                a = temp;
-            }
-            int correctAns = a;
-            System.out.println("Question: " + rndNum1 + " " + rndNum2);
-            System.out.print("Your answer: ");
-            int playersResponse = sc.nextInt();
-            if (playersResponse == correctAns) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.println("'" + playersResponse
-                        + "' is wrong answer ;(. Correct answer was '" + correctAns + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+        Core.doGreetingAndRules(RULES);
+        int[] correctAnsws = new int[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        String[] questions = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY];
+        int count = 0;
+        while (count < COUNT_ROUNDS) {
+            int rndNum1 = new Random().nextInt(RND_MAX_NUM);
+            int rndNum2 = new Random().nextInt(RND_MAX_NUM);
+            questions[count] = rndNum1 + " " + rndNum2;
+            correctAnsws[count] = isGcd(rndNum1, rndNum2);
+            count++;
         }
-        if (correctAnswers == COUNT_ROUNDS) {
-            System.out.println("Congratulations, " + name + "!");
+        Core.playGame(correctAnsws, questions);
+    }
+    public static int isGcd (int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
         }
-        sc.close();
+        return a;
     }
 }
