@@ -1,12 +1,12 @@
 package hexlet.code;
 
-import games.Even;
-import games.Calculator;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calculator;
 import java.util.Scanner;
 
-import games.GCD;
-import games.Progression;
-import games.Prime;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class App {
     static final int GREETING_NUMBER = 1;
