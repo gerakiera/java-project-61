@@ -29,27 +29,31 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         int userChoice = scanner.nextInt();
         System.out.println();
-        if (userChoice == EXIT_NUMBER) {
-            System.out.println("See you next time!");
-        }
-        if (userChoice == GREETING_NUMBER) {
-            System.out.println("Welcome to the Brain Games!");
-            Cli.getName();
-        }
-        if (userChoice == EVEN_GAME_NUMBER) {
-            Even.evenGame();
-        }
-        if (userChoice == CALC_GAME_NUMBER) {
-            Calculator.calculatorGame();
-        }
-        if (userChoice == GCD_GAME_NUMBER) {
-            GCD.gcdGame();
-        }
-        if (userChoice == PROGRESSION_GAME_NUMBER) {
-            Progression.gameProgression();
-        }
-        if (userChoice == PRIME_GAME_NUMBER) {
-            Prime.gamePrime();
+        switch (userChoice) {
+            case EXIT_NUMBER:
+                System.out.println("See you next time!");
+                break;
+            case GREETING_NUMBER:
+                System.out.println("Welcome to the Brain Games!");
+                Cli.getName();
+                break;
+            case EVEN_GAME_NUMBER:
+                Even.evenGame();
+                break;
+            case CALC_GAME_NUMBER:
+                Calculator.calculatorGame();
+                break;
+            case GCD_GAME_NUMBER:
+                GCD.gcdGame();
+                break;
+            case PROGRESSION_GAME_NUMBER:
+                Progression.gameProgression();
+                break;
+            case PRIME_GAME_NUMBER:
+                Prime.gamePrime();
+                break;
+            default:
+                throw new Error("Unknown state!");
         }
     }
 }

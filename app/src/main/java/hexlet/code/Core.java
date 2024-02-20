@@ -9,8 +9,11 @@ public class Core {
     public static final int INDEX_FOR_ARR_0 = 0;
     public static final int INDEX_FOR_ARR_1 = 1;
     public static void playGame(String[][] questionsPlusAnswers) {
-        String name = Cli.getName();
         Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        var name = sc.next();
+        System.out.println("Hello, " + name + " !");
         int usersCorrectAnswersCount = 0;
         while (usersCorrectAnswersCount < COUNT_ROUNDS) {
             String question = questionsPlusAnswers[usersCorrectAnswersCount][INDEX_FOR_ARR_0];
