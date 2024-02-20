@@ -34,8 +34,7 @@ public class App {
         }
         if (userChoice == GREETING_NUMBER) {
             System.out.println("Welcome to the Brain Games!");
-            Cli cli = new Cli();
-            cli.getName();
+            Cli.getName();
         }
         if (userChoice == EVEN_GAME_NUMBER) {
             Even.evenGame();
