@@ -8,7 +8,8 @@ public class GCD {
     private static final int RND_MAX_NUM = 50;
     public static void gcdGame() {
         Core.doGreetingAndRules(RULES);
-        String[][] questionsAndAnswers = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
+        String[][] questionsAndAnswers =
+                new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
         int count = 0;
         while (count < Core.COUNT_ROUNDS) {
             int rndNum1 = new Random().nextInt(RND_MAX_NUM);

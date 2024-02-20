@@ -14,7 +14,8 @@ public class Progression {
 
     public static void gameProgression() {
         Core.doGreetingAndRules(RULES);
-        String[][] questionsAndAnswers = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
+        String[][] questionsAndAnswers =
+                new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
         int count = 0;
         while (count < Core.COUNT_ROUNDS) {
             int start = new Random().nextInt(RND_MAX_START);
@@ -28,7 +29,8 @@ public class Progression {
                 question.append(part);
             }
             questionsAndAnswers[count][Core.INDEX_FOR_ARR_0] = String.valueOf(question);
-            questionsAndAnswers[count][Core.INDEX_FOR_ARR_1] = String.valueOf(getAnsw(progression, randomIndex, start, step));
+            questionsAndAnswers[count][Core.INDEX_FOR_ARR_1] = String.valueOf(getAnsw(progression, randomIndex,
+                    start, step));
             count++;
         }
         Core.playGame(questionsAndAnswers);

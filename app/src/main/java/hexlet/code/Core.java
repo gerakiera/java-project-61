@@ -13,18 +13,19 @@ public class Core {
         Scanner sc = new Scanner(System.in);
         int usersCorrectAnswersCount = 0;
         while (usersCorrectAnswersCount < COUNT_ROUNDS) {
-                String question = questionsPlusAnswers[usersCorrectAnswersCount][INDEX_FOR_ARR_0];
-                String correctAnswer = questionsPlusAnswers[usersCorrectAnswersCount][INDEX_FOR_ARR_1];
-                System.out.println("Question: " + question);
-                System.out.print("Your answer: ");
-                String playersResponse = sc.next();
-                if (playersResponse.equals(correctAnswer)) {
-                    System.out.println("Correct!");
-                    usersCorrectAnswersCount++;
-                } else {
-                    System.out.println("'" + playersResponse + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                    System.out.println("Let's try again, " + name + "!");
-                    break;
+            String question = questionsPlusAnswers[usersCorrectAnswersCount][INDEX_FOR_ARR_0];
+            String correctAnswer = questionsPlusAnswers[usersCorrectAnswersCount][INDEX_FOR_ARR_1];
+            System.out.println("Question: " + question);
+            System.out.print("Your answer: ");
+            String playersResponse = sc.next();
+            if (playersResponse.equals(correctAnswer)) {
+                System.out.println("Correct!");
+                usersCorrectAnswersCount++;
+            } else {
+                System.out.println("'" + playersResponse + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.");
+                System.out.println("Let's try again, " + name + "!");
+                break;
             }
         }
         if (usersCorrectAnswersCount == COUNT_ROUNDS) {
@@ -32,8 +33,8 @@ public class Core {
         }
         sc.close();
     }
-    public static void doGreetingAndRules(String rules){
-            System.out.println("Welcome to the Brain Games!");
-            System.out.println(rules);
+    public static void doGreetingAndRules(String rules) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println(rules);
     }
 }

@@ -9,7 +9,8 @@ public class Prime {
     private static final int RND_MAX_NUM = 200;
     public static void gamePrime() {
         Core.doGreetingAndRules(RULES);
-        String[][] questionsAndAnswers = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
+        String[][] questionsAndAnswers =
+                new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
         int count = 0;
         while (count < Core.COUNT_ROUNDS) {
             var randomNumber = new Random().nextInt(RND_MAX_NUM);

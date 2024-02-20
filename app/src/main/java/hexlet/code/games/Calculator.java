@@ -10,7 +10,8 @@ public class Calculator {
 
     public static void calculatorGame() {
         Core.doGreetingAndRules(RULES);
-        String[][] questionsAndAnswers = new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
+        String[][] questionsAndAnswers =
+                new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
         String[] action = new String[]{"+", "-", "*"};
         int count = 0;
         while (count < Core.COUNT_ROUNDS) {
