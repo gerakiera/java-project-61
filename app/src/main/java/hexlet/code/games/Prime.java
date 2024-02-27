@@ -1,24 +1,22 @@
 package hexlet.code.games;
 
-
 import hexlet.code.Core;
-import java.util.Random;
+import static hexlet.code.Utils.getRandom;
 
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int RND_MAX_NUM = 200;
     public static void gamePrime() {
-        Core.doGreetingAndRules(RULES);
         String[][] questionsAndAnswers =
-                new String[Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_3][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
+                new String[Core.COUNT_ROUNDS][Core.NUMBER_OF_ELEMENTS_FOR_ARRAY_2];
         int count = 0;
         while (count < Core.COUNT_ROUNDS) {
-            var randomNumber = new Random().nextInt(RND_MAX_NUM);
-            questionsAndAnswers[count][Core.INDEX_FOR_ARR_0] = randomNumber + "";
-            questionsAndAnswers[count][Core.INDEX_FOR_ARR_1] = isPrime(randomNumber) ? "yes" : "no";
+            var randomNumber = getRandom(RND_MAX_NUM);
+            questionsAndAnswers[count][0] = randomNumber + "";
+            questionsAndAnswers[count][1] = isPrime(randomNumber) ? "yes" : "no";
             count++;
         }
-        Core.playGame(questionsAndAnswers);
+        Core.playGame(RULES, questionsAndAnswers);
     }
 
     private static boolean isPrime(int number) {

@@ -35,7 +35,7 @@ public class App {
                 break;
             case GREETING_NUMBER:
                 System.out.println("Welcome to the Brain Games!");
-                Cli.getName();
+                Cli.greeting();
                 break;
             case EVEN_GAME_NUMBER:
                 Even.evenGame();
