@@ -20,7 +20,7 @@ public class Progression {
             int randomIndex = getRandom(RND_MAX_INDEX);
             String[] progression = getProgression(start, step, MAX_IN_ARRAY);
             String[] progressionWithMissElement = new String[progression.length];
-            System.arraycopy(progression, 0, progressionWithMissElement, 0, 10);
+            System.arraycopy(progression, 0, progressionWithMissElement, 0, RND_MAX_INDEX);
             var missingElement = progressionWithMissElement[randomIndex];
             progressionWithMissElement[randomIndex] = "..";
             String resultProgression = "";
